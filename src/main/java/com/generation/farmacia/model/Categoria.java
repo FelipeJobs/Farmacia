@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,11 +25,11 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	@Column(nullable = false,unique = true,length = 50) // esse comando diz que o nome tem que ser único, não pode ser nulo e o máximo de caracteres é 50.
+	@NotBlank
+	@Column(nullable = false, length = 50) // esse comando diz que o nome tem que ser único, não pode ser nulo e o máximo de caracteres é 50.
 	private String nome;
 	
-	@NotNull
+	@NotBlank
 	@Column(nullable = false, length = 300)
 	private String descricao;
 	

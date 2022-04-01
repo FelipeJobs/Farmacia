@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,17 +26,17 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "O nome não pode ter valor nulo")
+	@NotBlank(message = "O nome não pode ter valor nulo")
 	@Size(max = 50, message = "O número máximo de caracteres é 50")
 	private String nome;
-	@NotNull
+	@NotBlank
 	@Column(nullable = false, length = 300)
 	private String descricao;
 	
 	@NotNull(message = "A quantidade não pode ser nula")
 	private int quantidade;
 	
-	@NotNull
+	@NotBlank
 	private String laboratorio;
 	
 	@NotNull
